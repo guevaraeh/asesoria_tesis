@@ -36,8 +36,8 @@ export default function Login({ status, canResetPassword }: LoginProps) {
     };
 
     return (
-        <AuthLayout title="Actas" description="Ingresa tu usuario y contraseña">
-            <Head title="Actas de titulación" />
+        <AuthLayout title="Asesoria" description="Ingresa tu usuario y contraseña">
+            <Head title="Asesoria de tesis" />
 
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">

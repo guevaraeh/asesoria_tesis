@@ -4,6 +4,11 @@
 /public/build
 /public/hot
 /public/storage
+/public/cv/*.pdf
+/public/cv/*.docx
+/public/cv/*.zip
+/public/cv/*.rar
+/public/cv/*.7z
 /storage/*.key
 /storage/pail
 /vendor
