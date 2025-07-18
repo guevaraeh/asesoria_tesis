@@ -39,7 +39,6 @@
                 <tr>
                     <th></th>
                     <td>
-                        {{ $general->map_embed }}<br>
                         <iframe src="{{ $general->map_embed }}" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </td>
                 </tr>

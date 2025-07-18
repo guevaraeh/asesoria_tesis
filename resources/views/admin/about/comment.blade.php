@@ -9,10 +9,10 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table id="datat" class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered dtable">
                 <thead>
                     <tr>
-                        <th>N°</th>
+                        <th>Foto</th>
                         <th>Nombre</th>
                         <th>Posición</th>
                         <th>Comentario</th>
@@ -22,7 +22,12 @@
                 <tbody>
                 @foreach($comments as $comment)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        {{--<td>{{ $loop->iteration }}</td>--}}
+                        <td>
+                        @if($comment->photo)
+                        <img src="{{ Storage::url($comment->photo) }}" loading="lazy" width="30" height="30">
+                        @endif
+                        </td>
                         <td>{{ $comment->name }}</td>
                         <td>{{ $comment->position }}</td>
                         <td>{{ $comment->comment }}</td>
@@ -93,6 +98,10 @@
                     <div class="mb-3">
                         <label class="form-label"><b>Posición</b></label>
                         <input type="text" name="position" class="form-control" id="sposition" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Foto</b></label>
+                        <input type="file" name="photo" class="form-control" id="sphoto" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><b>Comentario</b></label>

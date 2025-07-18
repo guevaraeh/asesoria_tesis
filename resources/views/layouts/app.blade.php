@@ -745,6 +745,7 @@
             <a href="#" class="scroll-top"><i class="zmdi zmdi-long-arrow-up"></i></a>
         </div>
         <!-- #page -->
+{{--
         <div class="ct-modal ct-modal-search">
             <div class="ct-modal-close"><i class="ct-icon-close ct-center"></i></div>
             <div class="ct-modal-overlay"></div>
@@ -756,6 +757,7 @@
                 </form>
             </div>
         </div>
+--}}
         <div class="ct-hidden-sidebar-wrap">
             <div class="ct-hidden-sidebar-overlay"></div>
             <div class="ct-hidden-sidebar">

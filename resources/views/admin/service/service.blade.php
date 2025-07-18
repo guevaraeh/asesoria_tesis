@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table id="datat" class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered dtable">
                 <thead>
                     <tr>
                         <th>N°</th>

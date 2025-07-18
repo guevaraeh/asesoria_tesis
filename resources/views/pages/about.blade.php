@@ -755,7 +755,7 @@ About &#8211; Consultio
                                                                                         loading="lazy"
                                                                                         decoding="async"
                                                                                         class=""
-                                                                                        src="{{ asset('libraries/wp-content/uploads/2019/12/testimonial-07.jpg') }}"
+                                                                                        src="{{ $comment->photo ? Storage::url($comment->photo) : asset('no-photo.png') }}"
                                                                                         width="130"
                                                                                         height="130"
                                                                                         alt="testimonial-07"

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Comment;
 
 use Illuminate\Http\Request;
@@ -33,6 +35,15 @@ class AboutController extends Controller
         $comment->name = $request->input('name');
         $comment->position = $request->input('position');
         $comment->comment = $request->input('comment');
+
+        if($request->file('photo'))
+        {
+            $image = $request->file('photo');
+            $imagename = $image->store('comments');
+            //$request->merge(['photo' => $imagename]);
+            $comment->photo = $imagename;
+        }
+
         $comment->save();
 
         return redirect(route('index'))->with('success', 'Comentario registrado');
@@ -62,9 +73,16 @@ class AboutController extends Controller
         $comment->name = $request->input('name');
         $comment->position = $request->input('position');
         $comment->comment = $request->input('comment');
+
+        if($request->file('photo'))
+        {
+            $imagename = $request->file('photo')->store('comments','public');
+            $comment->photo = $imagename;
+        }
+
         $comment->save();
 
-        return redirect(route('index'))->with('success', 'Comentario registrado');
+        return redirect(route('index'))->with('success', 'Comentario actualizado');
     }
 
     /**

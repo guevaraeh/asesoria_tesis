@@ -32,11 +32,11 @@
                     @include('admin.contact.email')
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                     @include('admin.service.service')
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                     @include('admin.about.comment')
                     </div>
 
@@ -72,7 +72,7 @@
             $('#scomment').val($(this).attr('scomment'));
         });
 
-        var dt= new DataTable('#datat', {
+        var dt= new DataTable('.dtable', {
             searching: false,
             info: false,
             ordering: false,
