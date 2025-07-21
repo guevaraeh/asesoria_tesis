@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-About &#8211; Consultio
+Acerca de Nosotros
 @endsection
 
 @section('up')

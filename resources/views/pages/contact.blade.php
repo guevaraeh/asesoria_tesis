@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Contact v.2 &#8211; Consultio
+Contáctenos
 @endsection
 
 @section('up')

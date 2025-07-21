@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 <link href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet" integrity="sha384-BDXgFqzL/EpYeT/J5XTrxR+qDB4ft42notjpwhZDEjDIzutqmXeImvKS3YPH/WJX" crossorigin="anonymous">
 <link href="https://cdn.datatables.net/responsive/3.0.4/css/responsive.bootstrap5.min.css" rel="stylesheet" integrity="sha384-seyUnB//1QOFEqox9uI7YTLBgz9jBwFRqZvsEPFrTw6NAsFEo70nhBWsQfODqiYA" crossorigin="anonymous">
+
+{{--
 <style>
 .card-tools {
   display: flex;
@@ -19,5 +21,27 @@
   /*font-size: 0.875rem;*/
   font-size: 1rem;
 }
+</style>
+--}}
 
+<style>
+.card.card-tabs .card-tools {
+  margin: .3rem .5rem;
+}
+
+.card-header > .card-tools {
+  float: right;
+  /*margin-right: -0.625rem;*/
+}
+
+/*.card-header > .card-tools .input-group,
+.card-header > .card-tools .nav,
+.card-header > .card-tools .pagination {
+  margin-bottom: -0.3rem;
+  margin-top: -0.3rem;
+}*/
+
+.card-header > .card-tools [data-toggle="tooltip"] {
+  position: relative;
+}
 </style>

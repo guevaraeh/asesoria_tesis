@@ -2,8 +2,8 @@
     <div class="card-header d-flex justify-content-between align-items-center py-3">
         <h5 class="card-title text-primary"><i class="bi bi-lightbulb"></i> Servicios</h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal-add-service" title="Agregar">
-                <i class="bi bi-plus-lg"></i>
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-add-service" title="Agregar">
+                <i class="bi bi-plus-lg"></i> Agregar
             </button>
         </div>
     </div>

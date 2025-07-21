@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @include('layouts.icon')
-    <title>Asesoria de Tesis</title>
+    <title>GlobalThesis | Administración</title>
 
     @include('admin.layouts.styles')
   </head>
@@ -32,11 +32,11 @@
                     @include('admin.contact.email')
                     </div>
 
-                    <div class="col-lg-5">
+                    <div class="col-lg-6">
                     @include('admin.service.service')
                     </div>
 
-                    <div class="col-lg-7">
+                    <div class="col-lg-6">
                     @include('admin.about.comment')
                     </div>
 

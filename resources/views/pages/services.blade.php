@@ -542,7 +542,7 @@ Services v.1 &#8211; Consultio
 
 
 @section('title')
-Services &#8211; Consultio
+Servicios
 @endsection
 
 @section('up')
