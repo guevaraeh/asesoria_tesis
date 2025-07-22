@@ -1,40 +1,40 @@
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-between align-items-center py-3">
-        <h5 class="card-title text-primary"><i class="bi bi-chat-quote"></i> Comentarios</h5>
+        <h5 class="card-title text-primary"><i class="bi bi-people"></i> Miembros</h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-add-comment" title="Agregar">
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-add-team_member" title="Agregar">
                 <i class="bi bi-plus-lg"></i> Agregar
             </button>
         </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover table-bordered dtable">
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>Foto</th>
                         <th>Nombre</th>
                         <th>Posición</th>
-                        <th>Comentario</th>
+                        <th>CV</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($comments as $comment)
+                @foreach($team_members as $team_member)
                     <tr>
                         {{--<td>{{ $loop->iteration }}</td>--}}
                         <td>
-                        @if($comment->photo)
-                        <img src="{{ Storage::url($comment->photo) }}" loading="lazy" width="30" height="30">
+                        @if($team_member->photo)
+                        <img src="{{ Storage::url($team_member->photo) }}" loading="lazy" width="30" height="30">
                         @endif
                         </td>
-                        <td>{{ $comment->name }}</td>
-                        <td>{{ $comment->position }}</td>
-                        <td>{{ $comment->comment }}</td>
+                        <td>{{ $team_member->name }}</td>
+                        <td>{{ $team_member->position }}</td>
+                        <td>{{ $team_member->cv }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-info btn-sm edit-comment" data-bs-toggle="modal" data-bs-target="#exampleModal-comment" sname="{{ $comment->name }}" sposition="{{ $comment->position }}" scomment="{{ $comment->comment }}" value="{{ route('comment.update', $comment) }}"><i class="bi-pen"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm swalDefaultSuccess" form="deleteall" formaction="{{ route('comment.destroy',$comment) }}" value="Servicio: {{ $comment->name }}" title="Eliminar"><i class="bi-trash"></i></button>
+                                <button type="button" class="btn btn-info btn-sm edit-team_member" data-bs-toggle="modal" data-bs-target="#exampleModal-team_member" mlastname="{{ $team_member->lastname }}" mname="{{ $team_member->name }}" mposition="{{ $team_member->position }}" mdescription="{{ $team_member->description }}" value="{{ route('team_member.update', $team_member) }}" title="Editar"><i class="bi-pen"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm swalDefaultSuccess" form="deleteall" formaction="{{ route('team_member.destroy',$team_member) }}" value="Miembro: {{ $team_member->name }}" title="Eliminar"><i class="bi-trash"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -48,19 +48,22 @@
     </div>
 </div>
 
-<form action="{{ route('comment.store') }}" method="POST" enctype="multipart/form-data">
-    <div class="modal" id="exampleModal-add-comment" tabindex="-1" aria-labelledby="exampleModalLabel-add-comment" aria-hidden="true">
+<form action="{{ route('team_member.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="modal" id="exampleModal-add-team_member" tabindex="-1" aria-labelledby="exampleModalLabel-add-team_member" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary">
-                    <h1 class="modal-title fs-5 text-light" id="exampleModalLabel"><i class="bi bi-chat-quote"></i> Agregar Comentario</h1>
+                    <h1 class="modal-title fs-5 text-light" id="exampleModalLabel"><i class="bi bi-people"></i> Agregar Miembro de equipo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label"><b>Nombre</b></label>
-                        <input type="text" name="name" class="form-control" required>
+                        <div class="input-group">
+                            <input type="text" name="name" class="form-control" placeholder="Apellidos" required>
+                            <input type="text" name="lastname" class="form-control" placeholder="Nombres" required>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><b>Posición</b></label>
@@ -71,8 +74,8 @@
                         <input type="file" name="photo" class="form-control" accept="image/*">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><b>Comentario</b></label>
-                        <textarea name="comment" class="form-control"></textarea>
+                        <label class="form-label"><b>Descripción</b></label>
+                        <textarea name="description" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -84,12 +87,12 @@
     </div>
 </form>
 
-<form action="" method="POST" enctype="multipart/form-data" id="form-edit-comment">
-    <div class="modal" id="exampleModal-comment" tabindex="-1" aria-labelledby="exampleModalLabel-comment" aria-hidden="true">
+<form action="" method="POST" enctype="multipart/form-data" id="form-edit-team_member">
+    <div class="modal" id="exampleModal-team_member" tabindex="-1" aria-labelledby="exampleModalLabel-team_member" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-info">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-chat-quote"></i> Editar Comentario</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-people"></i> Editar Miembro de equipo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -97,19 +100,22 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label class="form-label"><b>Nombre</b></label>
-                        <input type="text" name="name" class="form-control" id="sname" required>
+                        <div class="input-group">
+                            <input type="text" name="name" class="form-control" placeholder="Apellidos" id="mlastname" required>
+                            <input type="text" name="lastname" class="form-control" placeholder="Nombres" id="mname" required>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><b>Posición</b></label>
-                        <input type="text" name="position" class="form-control" id="sposition" required>
+                        <input type="text" name="position" class="form-control" id="mposition" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><b>Foto</b></label>
-                        <input type="file" name="photo" class="form-control" accept="image/*">
+                        <input type="file" name="photo" class="form-control" id="mphoto" accept="image/*">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><b>Comentario</b></label>
-                        <textarea name="comment" class="form-control" id="scomment"></textarea>
+                        <label class="form-label"><b>Descripción</b></label>
+                        <textarea name="description" id="mdescription" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

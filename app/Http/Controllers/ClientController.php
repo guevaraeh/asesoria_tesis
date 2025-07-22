@@ -20,8 +20,10 @@ class ClientController extends Controller
         $general = General::first();
         $main_phone = Phone::where('main',1)->first();
         $main_email = Email::where('main',1)->first();
+        $services = Service::limit(4)->get();
+        $comments = Comment::get();
 
-        return view('pages.main', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email]);
+        return view('pages.main', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email, 'services' => $services, 'comments' => $comments]);
     }
 
     public function about()

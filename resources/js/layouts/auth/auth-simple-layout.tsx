@@ -16,7 +16,7 @@ export default function AuthSimpleLayout({ children, title, description }: Props
                     <div className="flex flex-col items-center gap-4">
                         <Link href={route('home')} className="flex flex-col items-center gap-2 font-medium">
                             {/*<img src="https://res.cloudinary.com/dzcmxfodx/image/upload/q_auto/f_auto/v1750432107/logo_hq0ose.png" alt="Logo" className="mb-1 flex items-center justify-center rounded-md" />*/}
-                            <img src="/logo.jpg" alt="Logo" className="mb-1 flex items-center justify-center rounded-md" />
+                            <img src="/logo_l.jpg" alt="Logo" className="mb-1 flex items-center justify-center rounded-md" />
                             {/*<div className="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
                                 <AppLogoIcon className="size-9 fill-current text-[var(--foreground)] dark:text-white" />
                             </div>*/}

@@ -7,6 +7,7 @@ use App\Models\Email;
 use App\Models\Service;
 use App\Models\Comment;
 use App\Models\General;
+use App\Models\TeamMember;
 
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +23,8 @@ class AdminController extends Controller
         $phones = Phone::get();
         $emails = Email::get();
 
+        $team_members = TeamMember::get();
+
         $general = null;
         $general = General::first();
 
@@ -29,7 +32,15 @@ class AdminController extends Controller
         $services = Service::orderBy('created_at','DESC')->get();
         $comments = Comment::orderBy('created_at','DESC')->get();
 
-        return view('admin.app',['phones' => $phones, 'emails' => $emails, 'services' => $services, 'comments' => $comments, 'main_phone' => $main_phone, 'general' => $general]);
+        return view('admin.app',[
+            'phones' => $phones, 
+            'emails' => $emails, 
+            'services' => $services, 
+            'comments' => $comments, 
+            'team_members' => $team_members, 
+            'main_phone' => $main_phone, 
+            'general' => $general
+        ]);
     }
 
     public function update(Request $request)

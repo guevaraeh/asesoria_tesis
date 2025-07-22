@@ -208,7 +208,7 @@ Acerca de Nosotros
                                                                         data-widget_type="text-editor.default"
                                                                     >
                                                                         <div class="elementor-widget-container">
-                                                                            <div class="about-call">Call to ask <a href="#">any question</a> <span>540-325-1523</span></div>
+                                                                            <div class="about-call">Para cualquier pregunta llame a: <span>+51 {{ preg_replace("/^(\d{3})(\d{3})(\d{3})$/", "$1 $2 $3", $main_phone->number) }}</span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div

@@ -20,7 +20,7 @@
 
             @include('admin.layouts.menu')
 
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
 
                     <div class="col-lg-8">
@@ -28,6 +28,7 @@
                     </div>
 
                     <div class="col-lg-4">
+                    @include('admin.about.team_member')
                     @include('admin.contact.phone')
                     @include('admin.contact.email')
                     </div>
@@ -70,6 +71,14 @@
             $('#sname').val($(this).attr('sname'));
             $('#sposition').val($(this).attr('sposition'));
             $('#scomment').val($(this).attr('scomment'));
+        });
+
+        $('.edit-member').click(function() {
+            $('#form-edit-member').attr('action',$(this).val());
+            $('#mlastname').val($(this).attr('mlastname'));
+            $('#mname').val($(this).attr('mname'));
+            $('#mposition').val($(this).attr('mposition'));
+            $('#mdescription').val($(this).attr('mdescription'));
         });
 
         var dt= new DataTable('.dtable', {

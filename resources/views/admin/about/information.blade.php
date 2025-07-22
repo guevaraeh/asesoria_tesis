@@ -2,7 +2,7 @@
     <div class="card-header d-flex justify-content-between align-items-center py-3">
         <h5 class="card-title text-primary"><i class="bi bi-card-list"></i> Datos generales</h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-general">
+            <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal-general">
                 <i class="bi bi-pen"></i> Editar
             </button>
         </div>
@@ -15,9 +15,9 @@
                     <th>Descripción</th>
                     <td>
                     @if(isset($general))
-                        <b>{{ json_decode($general->description)->main }}</b><br>
+                        <b>{{ json_decode($general->description)->main }}</b>
                         @foreach(json_decode($general->description)->text as $text)
-                        {{ $text }}
+                        <br>{{ $text }}
                         @endforeach
                     @endif
                     </td>

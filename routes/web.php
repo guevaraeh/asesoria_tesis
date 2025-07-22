@@ -50,6 +50,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/admin/comment/{comment}/update', [AboutController::class, 'update_comment'])->name('comment.update');
     Route::delete('/admin/comment/{comment}/destroy', [AboutController::class, 'destroy_comment'])->name('comment.destroy');
 
+    Route::post('/admin/team-member/store', [AboutController::class, 'store_team_member'])->name('team_member.store');
+    Route::put('/admin/team-member/{comment}/update', [AboutController::class, 'update_team_member'])->name('team_member.update');
+    Route::delete('/admin/team-member/{member}/destroy', [AboutController::class, 'destroy_team_member'])->name('team_member.destroy');
+
 });
 
 require __DIR__.'/settings.php';
