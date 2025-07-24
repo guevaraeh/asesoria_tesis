@@ -79,9 +79,6 @@
         </div>
         
     </div>
-    <div class="card-footer py-3">
-
-    </div>
 </div>
 
 <form action="{{ route('update') }}" method="POST" enctype="multipart/form-data" id="form-general">

@@ -36,9 +36,6 @@
             </table>
         </div>
     </div>
-    <div class="card-footer py-3">
-
-    </div>
 </div>
 
 <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">

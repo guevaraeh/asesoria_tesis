@@ -73,8 +73,8 @@
             $('#scomment').val($(this).attr('scomment'));
         });
 
-        $('.edit-member').click(function() {
-            $('#form-edit-member').attr('action',$(this).val());
+        $('.edit-team-member').click(function() {
+            $('#form-edit-team_member').attr('action',$(this).val());
             $('#mlastname').val($(this).attr('mlastname'));
             $('#mname').val($(this).attr('mname'));
             $('#mposition').val($(this).attr('mposition'));

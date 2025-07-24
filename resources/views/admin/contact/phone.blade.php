@@ -40,9 +40,6 @@
         </div>
         
     </div>
-    <div class="card-footer py-3">
-
-    </div>
 </div>
 
 <form action="{{ route('phone.store') }}" method="POST" enctype="multipart/form-data">

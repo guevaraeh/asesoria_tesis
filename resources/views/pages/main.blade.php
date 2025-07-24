@@ -2443,12 +2443,12 @@ Inicio
                                             </div>
                                         </div>
                                     </section>
+
                                     <section
                                         class="elementor-section elementor-top-section elementor-element elementor-element-5ee7f899 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default ct-header-fixed-none ct-row-max-none"
                                         data-id="5ee7f899"
                                         data-element_type="section"
-                                        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'
-                                    >
+                                        data-settings='{"stretch_section":"section-stretched","background_background":"classic"}'>
                                         <div class="elementor-container elementor-column-gap-extended">
                                             <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-10d9171b" data-id="10d9171b" data-element_type="column">
                                                 <div class="elementor-widget-wrap"></div>
@@ -2466,10 +2466,9 @@ Inicio
                                                                 <div class="ct-item--inner">
                                                                     <div
                                                                         class="ct-inline-css"
-                                                                        data-css="
-"
+                                                                        data-css=""
                                                                     ></div>
-                                                                    <div class="item--sub-title style1 show-line">Team member</div>
+                                                                    <div class="item--sub-title style1 show-line">Miembros del Equipo</div>
                                                                     <h3 class="item--title st-default case-animate-time" data-wow-delay="ms">
                                                                         <span class="sp-main"> Our expert team <cite>is the best ever.</cite> </span>
                                                                     </h3>
@@ -2484,11 +2483,11 @@ Inicio
                                             </div>
                                         </div>
                                     </section>
+
                                     <section
                                         class="elementor-section elementor-top-section elementor-element elementor-element-737f256e elementor-section-boxed elementor-section-height-default elementor-section-height-default ct-header-fixed-none ct-row-max-none"
                                         data-id="737f256e"
-                                        data-element_type="section"
-                                    >
+                                        data-element_type="section">
                                         <div class="elementor-container elementor-column-gap-extended">
                                             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6a90fcd4" data-id="6a90fcd4" data-element_type="column">
                                                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -2518,6 +2517,37 @@ Inicio
                                                                         data-dir="false"
                                                                         data-slidestoscroll="1"
                                                                     >
+                                                                        @foreach($team_members as $team_member)
+                                                                        <div class="slick-slide">
+                                                                            <div class="item--inner wow flipInY">
+                                                                                <div class="item--image">
+                                                                                    <a class="item--link" href="{{ route('about_team', $team_member) }}"></a>
+                                                                                    <img
+                                                                                        loading="lazy"
+                                                                                        decoding="async"
+                                                                                        class=""
+                                                                                        src="{{ $team_member->photo ? Storage::url($team_member->photo) : asset('no-photo.jpg') }}"
+                                                                                        width="269"
+                                                                                        height="324"
+                                                                                        alt="digital-team-01"
+                                                                                        title="digital-team-01"
+                                                                                    />
+                                                                                </div>
+                                                                                <div class="item--meta">
+                                                                                    <h3 class="item--title"><a href="{{ route('about_team', $team_member) }}">{{ $team_member->lastname .' '. $team_member->name }}</a></h3>
+                                                                                    <div class="item--position">{{ $team_member->position }}</div>
+                                                                                </div>
+                                                                                <div class="item--social">
+                                                                                    <span class="item--social-btn"><i>+</i></span>
+                                                                                    <div class="item--social-icon">
+                                                                                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a> <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                                                                        <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endforeach
+{{--
                                                                         <div class="slick-slide">
                                                                             <div class="item--inner wow flipInY">
                                                                                 <div class="item--image">
@@ -2658,6 +2688,7 @@ Inicio
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+--}}
                                                                     </div>
                                                                 </div>
                                                             </div>

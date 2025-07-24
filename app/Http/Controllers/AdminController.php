@@ -144,4 +144,15 @@ class AdminController extends Controller
             abort(404, 'Archivo no encontrado.');
         }
     }
+
+    public function download_team_member_cv(TeamMember $team_member)
+    {
+        $cv = $team_member->cv;
+        $ruta = public_path("cv/".$cv);
+        if (file_exists($ruta)) {
+            return response()->download($ruta);
+            } else {
+            abort(404, 'Archivo no encontrado.');
+        }
+    }
 }

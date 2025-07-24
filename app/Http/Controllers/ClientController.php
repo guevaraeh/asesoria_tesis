@@ -6,6 +6,7 @@ use App\Models\General;
 use App\Models\Phone;
 use App\Models\Email;
 use App\Models\Service;
+use App\Models\TeamMember;
 use App\Models\Comment;
 
 use Illuminate\Support\Facades\Mail;
@@ -22,8 +23,16 @@ class ClientController extends Controller
         $main_email = Email::where('main',1)->first();
         $services = Service::limit(4)->get();
         $comments = Comment::get();
+        $team_members = TeamMember::get();
 
-        return view('pages.main', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email, 'services' => $services, 'comments' => $comments]);
+        return view('pages.main', [
+            'general' => $general, 
+            'main_phone' => $main_phone, 
+            'main_email' => $main_email, 
+            'services' => $services, 
+            'comments' => $comments, 
+            'team_members' => $team_members
+        ]);
     }
 
     public function about()
@@ -33,8 +42,30 @@ class ClientController extends Controller
         $main_email = Email::where('main',1)->first();
         $services = Service::limit(4)->get();
         $comments = Comment::get();
+        $team_members = TeamMember::get();
 
-        return view('pages.about', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email, 'services' => $services, 'comments' => $comments]);
+        return view('pages.about', [
+            'general' => $general, 
+            'main_phone' => $main_phone, 
+            'main_email' => $main_email, 
+            'services' => $services, 
+            'comments' => $comments,
+            'team_members' => $team_members
+        ]);
+    }
+
+    public function about_team(TeamMember $team_member)
+    {
+        $general = General::first();
+        $main_phone = Phone::where('main',1)->first();
+        $main_email = Email::where('main',1)->first();
+
+        return view('pages.about_team', [
+            'general' => $general, 
+            'main_phone' => $main_phone, 
+            'main_email' => $main_email, 
+            'team_member' => $team_member
+        ]);
     }
 
     public function contact()
@@ -46,7 +77,13 @@ class ClientController extends Controller
         $phones = Phone::get();
         $emails = Email::get();
 
-        return view('pages.contact', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email, 'phones' => $phones, 'emails' => $emails]);
+        return view('pages.contact', [
+            'general' => $general, 
+            'main_phone' => $main_phone, 
+            'main_email' => $main_email, 
+            'phones' => $phones, 
+            'emails' => $emails
+        ]);
     }
 
     public function services()
@@ -57,7 +94,12 @@ class ClientController extends Controller
 
         $services = Service::orderBy('created_at','DESC')->paginate(5);
 
-        return view('pages.services', ['general' => $general, 'main_phone' => $main_phone, 'main_email' => $main_email, 'services' => $services]);
+        return view('pages.services', [
+            'general' => $general, 
+            'main_phone' => $main_phone, 
+            'main_email' => $main_email, 
+            'services' => $services
+        ]);
     }
 
     public function sendEmail()
@@ -81,6 +123,8 @@ class ClientController extends Controller
         "your-message" => "mensaje"*/
         //dd($request->collect());
         
+        $main_email = Email::where('main',1)->first();
+
         $data = [
             'name' => $request->input('last-name') . ' ' . $request->input('first-name'),
             'message' => $request->input('your-message'),
@@ -91,7 +135,7 @@ class ClientController extends Controller
         return redirect(route('contact'))->with('success', 'Enviado');*/
 
         try {
-            Mail::to('guevara.eh@gmail.com')->send(new ContactEmail($data));
+            Mail::to($main_email->email)->send(new ContactEmail($data));
             return redirect(route('contact'))->with('success', 'Enviado');
         } catch (\Exception $e) {
             return redirect(route('contact'))->with('error', 'No enviado');

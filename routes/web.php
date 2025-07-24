@@ -15,11 +15,13 @@ use App\Http\Controllers\ClientController;
 
 Route::get('/', [ClientController::class, 'index'])->name('home');
 Route::get('/acerca-de-nosotros', [ClientController::class, 'about'])->name('about');
+Route::get('/acerca-de-nosotros/{team_member}', [ClientController::class, 'about_team'])->name('about_team');
 Route::get('/contacto', [ClientController::class, 'contact'])->name('contact');
 Route::get('/servicios', [ClientController::class, 'services'])->name('services');
 Route::get('/enviar', [ClientController::class, 'sendEmail'])->name('email');
 Route::post('/envio-contacto', [ClientController::class, 'contact_email'])->name('contact.email');
 Route::get('/descarga-cv', [AdminController::class, 'download_cv'])->name('download_cv');
+Route::get('/descarga-cv/{team_member}', [AdminController::class, 'download_team_member_cv'])->name('download_team_member_cv');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
@@ -51,10 +53,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/admin/comment/{comment}/destroy', [AboutController::class, 'destroy_comment'])->name('comment.destroy');
 
     Route::post('/admin/team-member/store', [AboutController::class, 'store_team_member'])->name('team_member.store');
-    Route::put('/admin/team-member/{comment}/update', [AboutController::class, 'update_team_member'])->name('team_member.update');
-    Route::delete('/admin/team-member/{member}/destroy', [AboutController::class, 'destroy_team_member'])->name('team_member.destroy');
+    Route::put('/admin/team-member/{team_member}/update', [AboutController::class, 'update_team_member'])->name('team_member.update');
+    Route::delete('/admin/team-member/{team_member}/destroy', [AboutController::class, 'destroy_team_member'])->name('team_member.destroy');
 
 });
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+/*
+globalthesis740@gmail.com
+
+clave: globalthesis123
+
+clave para smtp: tspzneqvfiycqpll 
+*/

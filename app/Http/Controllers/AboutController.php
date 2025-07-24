@@ -94,6 +94,12 @@ class AboutController extends Controller
             $imagename = $request->file('photo')->store('team_members','public');
             $team_member->photo = $imagename;
         }
+         if($request->hasFile('cv'))
+        {
+            $filename = $request->file('cv')->getClientOriginalName();  
+            $request->file('cv')->move(public_path('cv'), $filename);
+            $team_member->cv = $filename;
+        }
 
         $team_member->save();
 
@@ -115,6 +121,12 @@ class AboutController extends Controller
             $imagename = $request->file('photo')->store('team_members','public');
             $team_member->photo = $imagename;
         }
+         if($request->hasFile('cv'))
+        {
+            $filename = $request->file('cv')->getClientOriginalName();  
+            $request->file('cv')->move(public_path('cv'), $filename);
+            $team_member->cv = $filename;
+        }
 
         $team_member->save();
 
@@ -126,8 +138,12 @@ class AboutController extends Controller
      */
     public function destroy_team_member(TeamMember $team_member)
     {
+        foreach($team_member->phones as $phone)
+            $phone->delete();
+        foreach($team_member->emails as $email)
+            $email->delete();
         $team_member->delete();
 
-        return redirect(route('index'))->with('success', 'Miembro eliminado');
+        return redirect(route('index'))->with('success', 'Miembro de equipo eliminado');
     }
 }
