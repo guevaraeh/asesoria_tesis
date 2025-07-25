@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('number', length: 20);
             $table->boolean('main')->default(0);
+            $table->foreignId('team_member_id')->nullable();
             $table->timestamps();
         });
     }

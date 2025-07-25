@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Phone;
+use App\Models\Email;
 use App\Models\Comment;
 use App\Models\TeamMember;
 
@@ -103,6 +105,28 @@ class AboutController extends Controller
 
         $team_member->save();
 
+        if($request->input('number'))
+        {
+            $phone = new Phone;
+            $phone->number = $request->input('number');
+            $phone->main = $request->input('pmain');
+            $phone->team_member_id = $team_member->id;
+            if($request->input('pmain') == '1')
+                Phone::query()->update(['main' => 0]);
+            $phone->save();
+        }
+        if($request->input('email'))
+        {
+            $email = new Email;
+            $email->email = $request->input('email');
+            $email->main = $request->input('emain');
+            $email->team_member_id = $team_member->id;
+            if($request->input('emain') == '1')
+                Email::query()->update(['main' => 0]);
+            $email->save();
+        }
+
+
         return redirect(route('index'))->with('success', 'Miembro registrado');
     }
 
@@ -115,6 +139,7 @@ class AboutController extends Controller
         $team_member->lastname = $request->input('lastname');
         $team_member->position = $request->input('position');
         $team_member->description = $request->input('description');
+        //$team_member->description = explode("\r\n", $request->input('description'));
 
         if($request->file('photo'))
         {

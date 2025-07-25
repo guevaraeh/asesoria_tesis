@@ -198,11 +198,11 @@ Acerca de Nosotros
                                             </div>
                                         </div>
                                     </section>
+
                                     <section
                                         class="elementor-section elementor-top-section elementor-element elementor-element-2b0ab90 elementor-section-boxed elementor-section-height-default elementor-section-height-default ct-header-fixed-none ct-row-max-none"
                                         data-id="2b0ab90"
-                                        data-element_type="section"
-                                    >
+                                        data-element_type="section">
                                         <div class="elementor-container elementor-column-gap-default">
                                             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-11c2a9c" data-id="11c2a9c" data-element_type="column">
                                                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -210,8 +210,28 @@ Acerca de Nosotros
                                                         class="elementor-element elementor-element-5f5bc25 elementor-widget elementor-widget-text-editor"
                                                         data-id="5f5bc25"
                                                         data-element_type="widget"
-                                                        data-widget_type="text-editor.default"
-                                                    >
+                                                        data-widget_type="text-editor.default">
+                                                        <div class="elementor-widget-container">
+                                                            {{ $team_member->description }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+{{--
+                                    <section
+                                        class="elementor-section elementor-top-section elementor-element elementor-element-2b0ab90 elementor-section-boxed elementor-section-height-default elementor-section-height-default ct-header-fixed-none ct-row-max-none"
+                                        data-id="2b0ab90"
+                                        data-element_type="section">
+                                        <div class="elementor-container elementor-column-gap-default">
+                                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-11c2a9c" data-id="11c2a9c" data-element_type="column">
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                    <div
+                                                        class="elementor-element elementor-element-5f5bc25 elementor-widget elementor-widget-text-editor"
+                                                        data-id="5f5bc25"
+                                                        data-element_type="widget"
+                                                        data-widget_type="text-editor.default">
                                                         <div class="elementor-widget-container">
                                                             Lorem ipsum dolor sit amet consectetur adipiscing tofo dosed do eiusmod tempor incididunt ut labore dolore sedodir magna aliqua. Lorem Ipsum has been rode. Making good
                                                             food choices takes on special significant for people living with diabetes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -222,8 +242,7 @@ Acerca de Nosotros
                                                         class="elementor-element elementor-element-3b73102 elementor-widget elementor-widget-text-editor"
                                                         data-id="3b73102"
                                                         data-element_type="widget"
-                                                        data-widget_type="text-editor.default"
-                                                    >
+                                                        data-widget_type="text-editor.default">
                                                         <div class="elementor-widget-container">
                                                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
                                                             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut
@@ -234,11 +253,11 @@ Acerca de Nosotros
                                             </div>
                                         </div>
                                     </section>
+--}}
                                     <section
                                         class="elementor-section elementor-top-section elementor-element elementor-element-f3d2e30 elementor-section-boxed elementor-section-height-default elementor-section-height-default ct-header-fixed-none ct-row-max-none"
                                         data-id="f3d2e30"
-                                        data-element_type="section"
-                                    >
+                                        data-element_type="section">
                                         <div class="elementor-container elementor-column-gap-extended">
                                             <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6b4a0ae" data-id="6b4a0ae" data-element_type="column">
                                                 <div class="elementor-widget-wrap elementor-element-populated">

@@ -54,6 +54,26 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label"><b>Número de Teléfono</b></label>
+                        @if(count($phones) > 0)
+                        <div class="input-group">
+                            <input type="tel" pattern="[0-9]{9}" name="number" class="form-control" required>
+                            <div class="input-group-text">
+                                <div class="form-check">
+                                    <input type="hidden" name="main" value="0" required>
+                                    <input class="form-check-input" type="checkbox" name="main" value="1">
+                                    <label class="form-check-label" for="checkChecked">
+                                        Principal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                        <input type="hidden" name="main" value="1" required>
+                        @endif
+                    </div>
+{{--
+                    <div class="mb-3">
+                        <label class="form-label"><b>Número de Teléfono</b></label>
                         <input type="tel" pattern="[0-9]{9}" name="number" class="form-control" required>
                     </div>
                     @if(count($phones) > 0)
@@ -71,6 +91,8 @@
                     @else
                     <input type="hidden" name="main" value="1" required>
                     @endif
+--}}
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

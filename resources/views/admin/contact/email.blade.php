@@ -53,6 +53,26 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label"><b>Correo Electrónico</b></label>
+                        @if(count($emails) > 0)
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
+                            <div class="input-group-text">
+                                <div class="form-check">
+                                    <input type="hidden" name="main" value="0" required>
+                                    <input class="form-check-input" type="checkbox" name="main" value="1">
+                                    <label class="form-check-label" for="checkChecked">
+                                        Principal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                        <input type="hidden" name="main" value="1" required>
+                        @endif
+                    </div>
+{{--
+                    <div class="mb-3">
+                        <label class="form-label"><b>Correo Electrónico</b></label>
                         <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
                     </div>
                     @if(count($emails) > 0)
@@ -70,6 +90,7 @@
                     @else
                     <input type="hidden" name="main" value="1" required>
                     @endif
+--}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

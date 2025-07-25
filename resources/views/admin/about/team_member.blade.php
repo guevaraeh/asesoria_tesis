@@ -72,56 +72,44 @@
                     </div>
 
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label"><b>Correo Electrónico</b></label>
-                                <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            @if(count($emails) > 0)
-                            <div class="mb-3">
-                                <label><b>Principal</b></label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="main" id="inlineRadio1" value="0" checked>
-                                    <label class="form-check-label" for="inlineRadio1">No</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="main" id="inlineRadio2" value="1">
-                                    <label class="form-check-label" for="inlineRadio2">Si</label>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Número de Teléfono</b></label>
+                        @if(count($phones) > 0)
+                        <div class="input-group">
+                            <input type="tel" pattern="[0-9]{9}" name="number" class="form-control" required>
+                            <div class="input-group-text">
+                                <div class="form-check">
+                                    <input type="hidden" name="pmain" value="0" required>
+                                    <input class="form-check-input" type="checkbox" name="pmain" value="1">
+                                    <label class="form-check-label" for="checkChecked">
+                                        Principal
+                                    </label>
                                 </div>
                             </div>
-                            @else
-                            <input type="hidden" name="main" value="1" required>
-                            @endif
                         </div>
+                        @else
+                        <input type="hidden" name="pmain" value="1" required>
+                        @endif
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label"><b>Número de Teléfono</b></label>
-                                <input type="tel" pattern="[0-9]{9}" name="number" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            @if(count($phones) > 0)
-                            <div class="mb-3">
-                                <label><b>Principal</b></label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="main" id="inlineRadio1" value="0" checked>
-                                    <label class="form-check-label" for="inlineRadio1">No</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="main" id="inlineRadio2" value="1">
-                                    <label class="form-check-label" for="inlineRadio2">Si</label>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Correo Electrónico</b></label>
+                        @if(count($emails) > 0)
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
+                            <div class="input-group-text">
+                                <div class="form-check">
+                                    <input type="hidden" name="emain" value="0" required>
+                                    <input class="form-check-input" type="checkbox" name="emain" value="1">
+                                    <label class="form-check-label" for="checkChecked">
+                                        Principal
+                                    </label>
                                 </div>
                             </div>
-                            @else
-                            <input type="hidden" name="main" value="1" required>
-                            @endif
                         </div>
+                        @else
+                        <input type="hidden" name="emain" value="1" required>
+                        @endif
                     </div>
 
 
